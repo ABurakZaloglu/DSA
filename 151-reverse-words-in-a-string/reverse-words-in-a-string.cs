@@ -1,20 +1,18 @@
 public class Solution {
     public string ReverseWords(string s) {
-        string[] temp = s.Split(" ");
-        string res = "";
+        s.Trim();
+        string[] word = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var result = new System.Text.StringBuilder();
 
-        for(int i = temp.Length -1; i >= 0; i--){
-            if(temp[i] == ""){
-                continue;
-            }
-            if(res == ""){
-                res = temp[i].Trim();
-            }else{
-                res += " " +temp[i].Trim();
-            }
+        for(int i = word.Length-1; i >= 0; i--){
             
+            result.Append(word[i]);
+
+            if(i != 0){
+                result.Append(" ");
+            }
         }
 
-        return res;
+        return result.ToString();
     }
 }
